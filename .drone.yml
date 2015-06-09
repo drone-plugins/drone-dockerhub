@@ -1,0 +1,27 @@
+build:
+  image: drone/golang
+  environment:
+    - CGO_ENABLED=0
+    - GOPATH=/drone
+  commands:
+    - go get
+    - go build
+    - go test
+
+publish:
+  docker:
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASS
+    email: $$DOCKER_EMAIL
+    repo: plugins/drone-dockerhub
+    when:
+      branch: master
+
+
+plugin:
+  name: DockerHub
+  desc: Triggers a DockerHub remote build.
+  type: publish
+  image: plugins/drone-dockerhub
+  labels:
+    - docker
