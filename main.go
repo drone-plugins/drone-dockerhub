@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"regexp"
 
 	"github.com/drone/drone-plugin-go/plugin"
 	try "gopkg.in/matryer/try.v1"
@@ -36,7 +37,9 @@ func main() {
 	})
 
 	if err != nil {
-		println(err.Error())
+		re := regexp.MustCompile("(.*?/trigger/)[^/]+")
+		fmt.Println(re.ReplaceAllString(err.Error(), "${1}HIDDEN"))
+
 		os.Exit(1)
 	}
 	resp.Body.Close()
