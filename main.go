@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"net/http"
 	"net/url"
+	"os"
+	"regexp"
 
 	"github.com/drone/drone-plugin-go/plugin"
+	try "gopkg.in/matryer/try.v1"
 )
 
 type DockerHub struct {
@@ -26,9 +28,18 @@ func main() {
 	endpoint := fmt.Sprintf("https://registry.hub.docker.com/u/%s/trigger/%s/", vargs.Repo, vargs.Token)
 	values := url.Values{"build": {"true"}}
 
-	resp, err := http.PostForm(endpoint, values)
+	var resp *http.Response
+	err := try.Do(func(attempt int) (bool, error) {
+		var err error
+
+		resp, err = http.PostForm(endpoint, values)
+		return attempt < 5, err
+	})
+
 	if err != nil {
-		println(err.Error())
+		re := regexp.MustCompile("(.*?/trigger/)[^/]+")
+		fmt.Println(re.ReplaceAllString(err.Error(), "${1}HIDDEN"))
+
 		os.Exit(1)
 	}
 	resp.Body.Close()
