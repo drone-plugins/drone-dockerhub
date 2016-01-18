@@ -16,7 +16,13 @@ type DockerHub struct {
 	Repo  string `json:"repo"`
 }
 
+var (
+	buildDate string
+)
+
 func main() {
+	fmt.Printf("Drone DockerHub Plugin built at %s\n", buildDate)
+
 	vargs := DockerHub{}
 
 	plugin.Param("vargs", &vargs)
