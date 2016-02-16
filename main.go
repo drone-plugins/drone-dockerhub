@@ -24,15 +24,18 @@ func main() {
 	fmt.Printf("Drone DockerHub Plugin built at %s\n", buildDate)
 
 	vargs := DockerHub{}
+	build := plugin.Build{}
 
 	plugin.Param("vargs", &vargs)
+	plugin.Param("build", &build)
+
 	if err := plugin.Parse(); err != nil {
 		println(err.Error())
 		os.Exit(1)
 	}
 
 	endpoint := fmt.Sprintf("https://registry.hub.docker.com/u/%s/trigger/%s/", vargs.Repo, vargs.Token)
-	values := url.Values{"build": {"true"}}
+	values := url.Values{"source_type": {"Branch"}, "source_name": {build.Branch}}
 
 	var resp *http.Response
 	err := try.Do(func(attempt int) (bool, error) {
