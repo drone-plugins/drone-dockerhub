@@ -4,7 +4,7 @@
 [![Coverage Status](https://aircover.co/badges/drone-plugins/drone-dockerhub/coverage.svg)](https://aircover.co/drone-plugins/drone-dockerhub)
 [![](https://badge.imagelayers.io/plugins/drone-dockerhub:latest.svg)](https://imagelayers.io/?images=plugins/drone-dockerhub:latest 'Get your own badge on imagelayers.io')
 
-Drone plugin to trigger a DockerHub remote build
+Drone plugin to trigger a DockerHub remote build. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
 
 ## Binary
 
