@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/drone/drone-plugin-go/plugin"
-	try "gopkg.in/matryer/try.v1"
 	"net/http"
 	"os"
 	"regexp"
+
+	"github.com/drone/drone-plugin-go/plugin"
+	try "gopkg.in/matryer/try.v1"
 )
 
 type DockerHub struct {
