@@ -4,7 +4,7 @@
 [![Coverage Status](https://aircover.co/badges/drone-plugins/drone-dockerhub/coverage.svg)](https://aircover.co/drone-plugins/drone-dockerhub)
 [![](https://badge.imagelayers.io/plugins/drone-dockerhub:latest.svg)](https://imagelayers.io/?images=plugins/drone-dockerhub:latest 'Get your own badge on imagelayers.io')
 
-Drone plugin to trigger a DockerHub remote build
+Drone plugin to trigger a DockerHub remote build on the updated branch.
 
 ## Binary
 
@@ -35,7 +35,7 @@ make deps build
         "finished_at": 1421029813,
         "message": "Update the Readme",
         "author": "johnsmith",
-        "author_email": "john.smith@gmail.com"
+        "author_email": "john.smith@gmail.com",
         "event": "push",
         "branch": "master",
         "commit": "436b7a6e2abaddfd35740527353e78a227ddcb2c",
@@ -82,7 +82,7 @@ docker run -i plugins/drone-dockerhub <<EOF
         "finished_at": 1421029813,
         "message": "Update the Readme",
         "author": "johnsmith",
-        "author_email": "john.smith@gmail.com"
+        "author_email": "john.smith@gmail.com",
         "event": "push",
         "branch": "master",
         "commit": "436b7a6e2abaddfd35740527353e78a227ddcb2c",
