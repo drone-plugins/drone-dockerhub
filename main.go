@@ -17,11 +17,11 @@ type DockerHub struct {
 }
 
 var (
-	buildDate string
+	buildCommit string
 )
 
 func main() {
-	fmt.Printf("Drone DockerHub Plugin built at %s\n", buildDate)
+	fmt.Printf("Drone DockerHub Plugin built from %s\n", buildCommit)
 
 	vargs := DockerHub{}
 
