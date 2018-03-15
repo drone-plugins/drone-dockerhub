@@ -1,0 +1,11 @@
+[[constraint]]
+  branch = "master"
+  name = "github.com/drone/drone-plugin-go"
+
+[[constraint]]
+  name = "gopkg.in/matryer/try.v1"
+  version = "1.0.0"
+
+[prune]
+  go-tests = true
+  unused-packages = true
