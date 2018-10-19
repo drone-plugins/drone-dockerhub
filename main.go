@@ -7,7 +7,7 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/drone/drone-plugin-go/plugin"
+	"github.com/drone/drone-go/plugin"
 	try "gopkg.in/matryer/try.v1"
 )
 
