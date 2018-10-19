@@ -2,20 +2,26 @@
 
 
 [[projects]]
-  branch = "master"
-  name = "github.com/drone/drone-plugin-go"
+  digest = "1:da5c468e0a7858053be82e2df5f40626c0f6b9ed60fafb1ac15d71c2c3101ad0"
+  name = "github.com/drone/drone-go"
   packages = ["plugin"]
-  revision = "d6109f644c5935c22620081b4c234bb2263743c7"
+  pruneopts = "UT"
+  revision = "eaa41f7836a191224ec5702d2458db07882ec269"
 
 [[projects]]
+  digest = "1:cc9f0c72e45707522afc156b3d715443e2021acedff165a4803f72a0d2ed170f"
   name = "gopkg.in/matryer/try.v1"
   packages = ["."]
+  pruneopts = "UT"
   revision = "312d2599e12e89ca89b52a09597394f449235d80"
   version = "v1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6cdd9b8b112df1723d6d93a2d2bce5c815eed554ae4d9921ad5d1df697ad33b4"
+  input-imports = [
+    "github.com/drone/drone-go/plugin",
+    "gopkg.in/matryer/try.v1",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
