@@ -7,7 +7,6 @@
 [![](https://images.microbadger.com/badges/image/plugins/dockerhub.svg)](https://microbadger.com/images/plugins/dockerhub "Get your own image badge on microbadger.com")
 [![Go Doc](https://godoc.org/github.com/drone-plugins/drone-dockerhub?status.svg)](http://godoc.org/github.com/drone-plugins/drone-dockerhub)
 [![Go Report](https://goreportcard.com/badge/github.com/drone-plugins/drone-dockerhub)](https://goreportcard.com/report/github.com/drone-plugins/drone-dockerhub)
-[![](https://images.microbadger.com/badges/image/plugins/dockerhub.svg)](https://microbadger.com/images/plugins/dockerhub "Get your own image badge on microbadger.com")
 
 Drone plugin to trigger a DockerHub remote build. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
 
