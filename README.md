@@ -1,8 +1,12 @@
 # drone-dockerhub
 
-[![Build Status](http://beta.drone.io/api/badges/drone-plugins/drone-dockerhub/status.svg)](http://beta.drone.io/drone-plugins/drone-dockerhub)
-[![Coverage Status](https://aircover.co/badges/drone-plugins/drone-dockerhub/coverage.svg)](https://aircover.co/drone-plugins/drone-dockerhub)
-[![](https://badge.imagelayers.io/plugins/drone-dockerhub:latest.svg)](https://imagelayers.io/?images=plugins/drone-dockerhub:latest 'Get your own badge on imagelayers.io')
+[![Build Status](http://cloud.drone.io/api/badges/drone-plugins/drone-dockerhub/status.svg)](http://cloud.drone.io/drone-plugins/drone-dockerhub)
+[![Gitter chat](https://badges.gitter.im/drone/drone.png)](https://gitter.im/drone/drone)
+[![Join the discussion at https://discourse.drone.io](https://img.shields.io/badge/discourse-forum-orange.svg)](https://discourse.drone.io)
+[![Drone questions at https://stackoverflow.com](https://img.shields.io/badge/drone-stackoverflow-orange.svg)](https://stackoverflow.com/questions/tagged/drone.io)
+[![](https://images.microbadger.com/badges/image/plugins/dockerhub.svg)](https://microbadger.com/images/plugins/dockerhub "Get your own image badge on microbadger.com")
+[![Go Doc](https://godoc.org/github.com/drone-plugins/drone-dockerhub?status.svg)](http://godoc.org/github.com/drone-plugins/drone-dockerhub)
+[![Go Report](https://goreportcard.com/badge/github.com/drone-plugins/drone-dockerhub)](https://goreportcard.com/report/github.com/drone-plugins/drone-dockerhub)
 
 Drone plugin to trigger a DockerHub remote build. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
 
