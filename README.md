@@ -8,98 +8,41 @@
 [![Go Doc](https://godoc.org/github.com/drone-plugins/drone-dockerhub?status.svg)](http://godoc.org/github.com/drone-plugins/drone-dockerhub)
 [![Go Report](https://goreportcard.com/badge/github.com/drone-plugins/drone-dockerhub)](https://goreportcard.com/report/github.com/drone-plugins/drone-dockerhub)
 
-Drone plugin to trigger a DockerHub remote build. For the usage information and a listing of the available options please take a look at [the docs](DOCS.md).
+> Warning: This plugin has not been migrated to Drone >= 0.5 yet, you are not able to use it with a current Drone version until somebody volunteers to update the plugin structure to the new format.
 
-## Binary
+Drone plugin to trigger a DockerHub remote build. For the usage information and a listing of the available options please take a look at [the docs](http://plugins.drone.io/drone-plugins/drone-dockerhub/).
 
-Build the binary using `make`:
+## Build
 
-```
-make deps build
-```
+Build the binary with the following command:
 
-### Example
+```console
+export GOOS=linux
+export GOARCH=amd64
+export CGO_ENABLED=0
+export GO111MODULE=on
 
-```sh
-./drone-dockerhub <<EOF
-{
-    "repo": {
-        "clone_url": "git://github.com/drone/drone",
-        "owner": "drone",
-        "name": "drone",
-        "full_name": "drone/drone"
-    },
-    "system": {
-        "link_url": "https://beta.drone.io"
-    },
-    "build": {
-        "number": 22,
-        "status": "success",
-        "started_at": 1421029603,
-        "finished_at": 1421029813,
-        "message": "Update the Readme",
-        "author": "johnsmith",
-        "author_email": "john.smith@gmail.com"
-        "event": "push",
-        "branch": "master",
-        "commit": "436b7a6e2abaddfd35740527353e78a227ddcb2c",
-        "ref": "refs/heads/master"
-    },
-    "workspace": {
-        "root": "/drone/src",
-        "path": "/drone/src/github.com/drone/drone"
-    },
-    "vargs": {
-        "token": "be579c82-7c0e-11e4-81c4-0242ac110020",
-        "repo": "foo/bar"
-    }
-}
-EOF
+go build -v -a -tags netgo -o release/linux/amd64/drone-dockerhub
 ```
 
 ## Docker
 
-Build the container using `make`:
+Build the Docker image with the following command:
 
+```console
+docker build \
+  --label org.label-schema.build-date=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+  --label org.label-schema.vcs-ref=$(git rev-parse --short HEAD) \
+  --file docker/Dockerfile.linux.amd64 --tag plugins/dockerhub .
 ```
-make deps docker
-```
 
-### Example
+## Usage
 
-```sh
-docker run -i plugins/drone-dockerhub <<EOF
-{
-    "repo": {
-        "clone_url": "git://github.com/drone/drone",
-        "owner": "drone",
-        "name": "drone",
-        "full_name": "drone/drone"
-    },
-    "system": {
-        "link_url": "https://beta.drone.io"
-    },
-    "build": {
-        "number": 22,
-        "status": "success",
-        "started_at": 1421029603,
-        "finished_at": 1421029813,
-        "message": "Update the Readme",
-        "author": "johnsmith",
-        "author_email": "john.smith@gmail.com"
-        "event": "push",
-        "branch": "master",
-        "commit": "436b7a6e2abaddfd35740527353e78a227ddcb2c",
-        "ref": "refs/heads/master"
-    },
-    "workspace": {
-        "root": "/drone/src",
-        "path": "/drone/src/github.com/drone/drone"
-    },
-    "vargs": {
-        "token": "be579c82-7c0e-11e4-81c4-0242ac110020",
-        "repo": "foo/bar"
-    }
-}
-EOF
+```console
+docker run --rm \
+  -e PLUGIN_TOKEN=be579c82-7c0e-11e4-81c4-0242ac110020 \
+  -e PLUGIN_REPO=foo/bar \
+  -v $(pwd):$(pwd) \
+  -w $(pwd) \
+  plugins/dockerhub
 ```
